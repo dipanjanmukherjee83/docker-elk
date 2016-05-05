@@ -24,7 +24,6 @@ services:
           hosts => elasticsearch
         }
       }'
-    hostname: logstash
     environment:
     - TZ=Europe/Paris
     - LOGSPOUT=ignore
