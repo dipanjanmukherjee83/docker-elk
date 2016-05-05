@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  logstash:
+    image: logstash
+    hostname: logstash
+    environment:
+    - TZ=Europe/Paris
+    links:
+    - elasticsearch:elasticsearch
+    command: 'logstash -e "input { gelf { type => docker, port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://logstash:12201
+    restart: 'no'
+    read_only: true
+
+  elasticsearch:
+    image: elasticsearch
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://logstash:12201
+    restart: 'no'
+    read_only: true
+
+  kibana:
+    image: kibana
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: kibana.${DOMAIN}'
+      traefik.port: '5601'
+    links:
+    - elasticsearch:elasticsearch
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://logstash:12201
+    restart: 'no'
+    read_only: true
+
+networks:
+  default:
+    external:
+      name: swarm-net
