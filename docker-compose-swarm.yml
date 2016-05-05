@@ -11,10 +11,23 @@ services:
 
   logstash:
     image: logstash
-    command: 'logstash -e "input { gelf { type => docker\n port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
+    command: >
+      logstash
+      -e 'input {
+        udp {
+          port => 5000
+          codec => json
+        }
+      }
+      output {
+        elasticsearch {
+          hosts => elasticsearch
+        }
+      }'
     hostname: logstash
     environment:
     - TZ=Europe/Paris
+    - LOGSPOUT=ignore
     links:
     - elasticsearch:elasticsearch
     logging:
