@@ -11,12 +11,12 @@ services:
 
   logstash:
     image: logstash
+    command: 'logstash -e "input { gelf { type => docker, port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
     hostname: logstash
     environment:
     - TZ=Europe/Paris
     links:
     - elasticsearch:elasticsearch
-    command: 'logstash -e "input { gelf { type => docker, port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
     logging:
       driver: json-file
       options:
@@ -29,6 +29,8 @@ services:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: kibana.${DOMAIN}'
       traefik.port: '5601'
+    environment:
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
     links:
     - elasticsearch:elasticsearch
     logging:
