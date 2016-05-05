@@ -10,18 +10,18 @@ services:
     - elasticsearch:elasticsearch
     command: 'logstash -e "input { gelf { type => docker, port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
     logging:
-      driver: gelf
+      driver: json-file
       options:
-        gelf-address: udp://logstash:12201
+        max-size: '50m'
     restart: 'no'
     read_only: true
 
   elasticsearch:
     image: elasticsearch
     logging:
-      driver: gelf
+      driver: json-file
       options:
-        gelf-address: udp://logstash:12201
+        max-size: '50m'
     restart: 'no'
     read_only: true
 
@@ -34,9 +34,9 @@ services:
     links:
     - elasticsearch:elasticsearch
     logging:
-      driver: gelf
+      driver: json-file
       options:
-        gelf-address: udp://logstash:12201
+        max-size: '50m'
     restart: 'no'
     read_only: true
 
