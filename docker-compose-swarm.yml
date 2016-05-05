@@ -11,7 +11,7 @@ services:
 
   logstash:
     image: logstash
-    command: 'logstash -e "input { gelf { type => docker, port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
+    command: 'logstash -e "input { gelf { type => docker\n port => 12201 } } output { elasticsearch { hosts => elasticsearch } }"'
     hostname: logstash
     environment:
     - TZ=Europe/Paris
