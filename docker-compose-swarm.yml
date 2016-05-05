@@ -1,6 +1,14 @@
 version: '2'
 
 services:
+  elasticsearch:
+    image: elasticsearch
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+
   logstash:
     image: logstash
     hostname: logstash
@@ -14,16 +22,6 @@ services:
       options:
         max-size: '50m'
     restart: 'no'
-    read_only: true
-
-  elasticsearch:
-    image: elasticsearch
-    logging:
-      driver: json-file
-      options:
-        max-size: '50m'
-    restart: 'no'
-    read_only: true
 
   kibana:
     image: kibana
@@ -38,7 +36,6 @@ services:
       options:
         max-size: '50m'
     restart: 'no'
-    read_only: true
 
 networks:
   default:
