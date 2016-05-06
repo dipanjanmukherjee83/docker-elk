@@ -24,8 +24,8 @@ services:
           hosts => elasticsearch
         }
       }'
-    ports:
-    - "5000:5000/udp"
+    expose:
+    - "5000/udp"
     environment:
     - TZ=Europe/Paris
     - LOGSPOUT=ignore
