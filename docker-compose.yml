@@ -1,0 +1,73 @@
+version: '2'
+
+services:
+  elasticsearch:
+    image: elasticsearch
+    labels:
+      traefik.enable: 'false'
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+
+  logstash:
+    image: logstash
+    command: >
+      logstash
+      -e 'input {
+        udp {
+          port => 5000
+          codec => json
+        }
+      }
+      output {
+        elasticsearch {
+          hosts => elasticsearch
+        }
+      }'
+    labels:
+      traefik.enable: 'false'
+    expose:
+    - '5000/udp'
+    environment:
+    - TZ=Europe/Paris
+    - LOGSPOUT=ignore
+    links:
+    - elasticsearch:elasticsearch
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+
+  kibana:
+    image: kibana
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: kibana.${DOMAIN}'
+      traefik.port: '5601'
+    environment:
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
+    links:
+    - elasticsearch:elasticsearch
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+
+  logspout:
+    image: vibioh/logspout
+    command: 'logstash://logstash:5000'
+    labels:
+      traefik.enable: 'false'
+    links:
+    - logstash:logstash
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
