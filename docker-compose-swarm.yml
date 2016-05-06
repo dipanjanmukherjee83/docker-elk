@@ -44,6 +44,8 @@ services:
     - /var/run/docker.sock:/tmp/docker.sock
     links:
     - logstash:logstash
+    environment:
+    - affinity:container!=*service*
     logging:
       driver: json-file
       options:
