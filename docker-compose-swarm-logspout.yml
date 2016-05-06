@@ -4,6 +4,8 @@ services:
   logspout:
     image: vibioh/logspout
     command: 'logstash://${LOGSTASH_IP}:5000'
+    labels:
+      traefik.enable: 'false'
     volumes:
     - /var/run/docker.sock:/tmp/docker.sock
     environment:

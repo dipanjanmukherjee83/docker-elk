@@ -3,6 +3,8 @@ version: '2'
 services:
   elasticsearch:
     image: elasticsearch
+    labels:
+      traefik.enable: 'false'
     logging:
       driver: json-file
       options:
@@ -24,6 +26,8 @@ services:
           hosts => elasticsearch
         }
       }'
+    labels:
+      traefik.enable: 'false'
     expose:
     - "5000/udp"
     environment:
