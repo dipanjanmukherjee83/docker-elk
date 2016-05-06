@@ -45,7 +45,7 @@ services:
     links:
     - logstash:logstash
     environment:
-    - affinity:container!=*service*
+    - affinity:container!=*logspout*
     logging:
       driver: json-file
       options:
