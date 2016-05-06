@@ -29,7 +29,7 @@ services:
     labels:
       traefik.enable: 'false'
     expose:
-    - "5000/udp"
+    - '5000/udp'
     environment:
     - TZ=Europe/Paris
     - LOGSPOUT=ignore
