@@ -24,11 +24,26 @@ services:
           hosts => elasticsearch
         }
       }'
+    ports:
+    - "5000:5000/udp"
     environment:
     - TZ=Europe/Paris
     - LOGSPOUT=ignore
     links:
     - elasticsearch:elasticsearch
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+
+  logspout:
+    image: vibioh/logspout
+    command: 'logstash://logstash:5000'
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    links:
+    - logstash:logstash
     logging:
       driver: json-file
       options:
