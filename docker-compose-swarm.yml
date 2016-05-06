@@ -37,21 +37,6 @@ services:
         max-size: '50m'
     restart: 'no'
 
-  logspout:
-    image: vibioh/logspout
-    command: 'logstash://logstash:5000'
-    volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
-    links:
-    - logstash:logstash
-    environment:
-    - affinity:container!=*logspout*
-    logging:
-      driver: json-file
-      options:
-        max-size: '50m'
-    restart: 'no'
-
   kibana:
     image: kibana
     labels:
