@@ -49,6 +49,7 @@ services:
       traefik.port: '5601'
     environment:
     - ELASTICSEARCH_URL=http://elasticsearch:9200
+    - NODE_OPTIONS=-max-old-space-size=200
     links:
     - elasticsearch:elasticsearch
     logging:
