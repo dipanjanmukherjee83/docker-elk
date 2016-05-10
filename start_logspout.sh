@@ -24,7 +24,6 @@ function docker-clean() {
     end_containers=`echo ${end_containers} | tr " " "\n" | grep -v "${exclude_containers}"`
   fi
   docker rm -f ${end_containers} 2>/dev/null
-  docker rmi `docker images --filter dangling=true -q 2>/dev/null` 2>/dev/null
 }
 
 docker-clean logspout* force
