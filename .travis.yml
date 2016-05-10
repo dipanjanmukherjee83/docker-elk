@@ -1,9 +1,8 @@
 sudo: required
 services:
   - docker
-install: make
 script:
-  - "make"
+  - "docker build -t vibioh/logspout --rm ."
   - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
   - "docker push vibioh/logspout"
 notifications:
