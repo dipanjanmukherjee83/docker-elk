@@ -2,7 +2,7 @@ version: '2'
 
 services:
   elasticsearch:
-    image: elasticsearch
+    image: vibioh/elasticsearch
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: elasticsearch.${DOMAIN}'
