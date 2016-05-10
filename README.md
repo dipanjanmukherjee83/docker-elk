@@ -20,7 +20,7 @@ Logspout is used to forward all logs from the Docker daemon to Logstash. It conn
 docker-compose -f docker-compose-swarm.yml up -d
 ```
 
-You need to start Logspout on each Docker daemon, so on each node. We have a script for that. It assumes that `docker` command is connected to Docker Swarm.
+You need to start Logspout on each Docker daemon, so on each node. We have a script for that. It assumes that `docker` command is connected to Docker Swarm and every node of Swarm is in the same Docker network (does I say Overlay ?!)
 
 ```
 ./start_logspout.sh
