@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function docker-clean() {
   forceWord=force
