@@ -11,8 +11,9 @@ docker-compose up -d
 
 Kibana will be accessible to http://kibana.your_domain_name if you use the awesome [Traefik](https://traefik.io). If not, you'll need to tweak the compose for changing `ports`.
 
-Logspout is used to forward all logs from the Docker daemon to Logstash. It connects to `/var/run/docker.sock` to read information from the daemon.
+Elasticsearch can be managed with [ElasticHQ](http://www.elastichq.org) on http://elasticsearch.your_domain_name/_plugin/hq
 
+Logspout is used to forward all logs from the Docker daemon to Logstash. It connects to `/var/run/docker.sock` to read information from the daemon.
 
 ## Running inside a Docker Swarm
 
