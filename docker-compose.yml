@@ -2,9 +2,11 @@ version: '2'
 
 services:
   elasticsearch:
-    image: elasticsearch
+    image: vibioh/elasticsearch
     labels:
-      traefik.enable: 'false'
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: elasticsearch.${DOMAIN}'
+      traefik.port: '9200'
     logging:
       driver: json-file
       options:
