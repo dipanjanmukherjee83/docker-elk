@@ -4,7 +4,9 @@ services:
   elasticsearch:
     image: elasticsearch
     labels:
-      traefik.enable: 'false'
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: elasticsearch.${DOMAIN}'
+      traefik.port: '9200'
     logging:
       driver: json-file
       options:
