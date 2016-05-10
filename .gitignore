@@ -20,9 +20,3 @@ Desktop.ini
 .idea/
 *.iml
 *.iws
-
-# Node Package Manager
-node_modules/
-**/npm-debug.log
-coverage/
-tmp/
