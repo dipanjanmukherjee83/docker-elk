@@ -4,5 +4,5 @@ MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 RUN ./bin/plugin install royrusso/elasticsearch-HQ \
  && ./bin/plugin install license \
  && ./bin/plugin install shield \
- && ./bin/shield/esusers useradd es_admin -r admin \
- && ./bin/shield/esusers useradd kibana4_server -r kibana4_server
+ && ./bin/shield/esusers useradd es_admin -r admin -p P4SSW0RD \
+ && ./bin/shield/esusers useradd kibana4_server -r kibana4_server -p P4SSW0RD
