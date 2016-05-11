@@ -5,5 +5,5 @@ RUN ./bin/plugin install royrusso/elasticsearch-HQ \
  && ./bin/plugin install license \
  && ./bin/plugin install shield \
  && ./bin/shield/esusers useradd admin -r admin -p P4SSW0RD \
- && ./bin/shield/esusers useradd logstash -p P4SSW0RD -r logstash \
+ && ./bin/shield/esusers useradd logstash -r logstash -p P4SSW0RD \
  && ./bin/shield/esusers useradd kibana4_server -r kibana4_server -p P4SSW0RD
