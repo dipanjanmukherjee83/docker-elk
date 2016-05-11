@@ -1,4 +1,5 @@
 FROM kibana
+MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 
 ENV KIBANA_CONFIG /opt/kibana/config/kibana.yml
 
