@@ -26,8 +26,6 @@ services:
       output {
         elasticsearch {
           hosts => elasticsearch
-          user => logstash
-          password => P4SSW0RD
         }
       }'
     labels:
@@ -46,7 +44,7 @@ services:
     restart: 'no'
 
   kibana:
-    image: vibioh/kibana
+    image: kibana
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: kibana.${DOMAIN}'
