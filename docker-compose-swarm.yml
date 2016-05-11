@@ -26,6 +26,7 @@ services:
       output {
         elasticsearch {
           hosts => elasticsearch
+          protocol => http
           user => logstash
           password => P4SSW0RD
         }
