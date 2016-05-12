@@ -1,7 +1,7 @@
 FROM elasticsearch
 MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 
-RUN ./bin/plugin install royrusso/elasticsearch-HQ
+RUN ./bin/plugin install royrusso/elasticsearch-HQ \
  && ./bin/plugin install license \
  && ./bin/plugin install shield \
  && ./bin/shield/esusers useradd admin -p P4SSW0RD -r admin \
