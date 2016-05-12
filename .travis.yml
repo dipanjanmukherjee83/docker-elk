@@ -4,10 +4,8 @@ services:
 script:
   - "docker build -t vibioh/logspout -f ./logspout/Dockerfile --rm ."
   - "docker build -t vibioh/elasticsearch -f ./elastic/Dockerfile --rm ."
-  - "docker build -t vibioh/kibana -f ./kibana/Dockerfile --rm ."
   - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
   - "docker push vibioh/logspout"
   - "docker push vibioh/elasticsearch"
-  - "docker push vibioh/kibana"
 notifications:
   email: false

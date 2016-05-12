@@ -26,8 +26,6 @@ services:
       output {
         elasticsearch {
           hosts => elasticsearch
-          user => logstash		
-          password => P4SSW0RD
         }
       }'
     labels:
