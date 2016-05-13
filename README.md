@@ -10,9 +10,10 @@
 ```
 export DOMAIN=your_domain_name
 export NODE=docker
-docker-compose up -d
-docker-compose -f docker-compose-logspout.yml up -d
-docker-compose -f docker-compose-netdata.yml up -d
+export NETDATA_DIR=`pwd`
+docker-compose -p elk up -d
+docker-compose -p logspout -f docker-compose-logspout.yml up -d
+docker-compose -p netdata -f docker-compose-netdata.yml up -d
 ```
 
 Kibana will be accessible to http://kibana.your_domain_name if you use the awesome [Traefik](https://traefik.io). If not, you'll need to tweak the compose for changing `ports`.
@@ -35,4 +36,8 @@ You need to start Logspout on each Docker daemon, so on each node. We have a scr
 
 ```
 ./start_logspout.sh
+export NODE=docker
+docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml up -d
+export NODE=docker-node-1
+docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml scale netdata=2
 ```
