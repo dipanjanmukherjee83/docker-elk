@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/ViBiOh/docker-elk.svg?branch=master)](https://travis-ci.org/ViBiOh/docker-elk) 
 
-* ElasticSearch [![](https://imagelayers.io/badge/vibioh/elasticsearch:latest.svg)](https://imagelayers.io/?images=vibioh/elasticsearch:latest 'Get your own badge on imagelayers.io')
-* Logspout [![](https://imagelayers.io/badge/vibioh/logspout:latest.svg)](https://imagelayers.io/?images=vibioh/logspout:latest 'Get your own badge on imagelayers.io')
+* [![](https://imagelayers.io/badge/vibioh/elasticsearch:latest.svg)](https://imagelayers.io/?images=vibioh/elasticsearch:latest 'Get your own badge on imagelayers.io') ElasticSearch 
+* [![](https://imagelayers.io/badge/vibioh/logspout:latest.svg)](https://imagelayers.io/?images=vibioh/logspout:latest 'Get your own badge on imagelayers.io') Logspout 
 
 ## Starting ElasticSearch - Logstash - Kibana
 
