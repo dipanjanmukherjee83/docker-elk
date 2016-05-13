@@ -9,8 +9,10 @@
 
 ```
 export DOMAIN=your_domain_name
+export NODE=docker
 docker-compose up -d
 docker-compose -f docker-compose-logspout.yml up -d
+docker-compose -f docker-compose-netdata.yml up -d
 ```
 
 Kibana will be accessible to http://kibana.your_domain_name if you use the awesome [Traefik](https://traefik.io). If not, you'll need to tweak the compose for changing `ports`.
@@ -20,6 +22,8 @@ Shield is configured on each component of the stack to ensure authentication. De
 Elasticsearch can be managed with [ElasticHQ](http://www.elastichq.org) on http://elasticsearch.your_domain_name/_plugin/hq
 
 Logspout is used to forward all logs from the Docker daemon to Logstash. It connects to `/var/run/docker.sock` to read information from the daemon.
+
+Netdata is used for monitoring.
 
 ## Running inside a Docker Swarm
 
