@@ -30,3 +30,5 @@ docker-clean logspout* force
 export LOGSTASH_IP=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' --type=container elk_logstash_1`
 docker-compose -p logspout -f docker-compose-logspout.yml -f docker-compose-logspout.swarm.yml up -d
 docker-compose -p logspout -f docker-compose-logspout.yml -f docker-compose-logspout.swarm.yml scale logspout=`docker info 2>/dev/null | grep ^Nodes: | awk '{print $2}'`
+
+`docker info 2>/dev/null | grep "^\s[a-zA-Z0-9_\-]*\:\s[a-zA-Z0-9.]*\:" | awk '{print $1}' | sed 's|\:||g'`
