@@ -59,18 +59,3 @@ services:
       options:
         max-size: '50m'
     restart: 'no'
-
-  logspout:
-    image: vibioh/logspout
-    command: 'logstash://logstash:5000'
-    labels:
-      traefik.enable: 'false'
-    links:
-    - logstash:logstash
-    volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
-    logging:
-      driver: json-file
-      options:
-        max-size: '50m'
-    restart: 'no'
