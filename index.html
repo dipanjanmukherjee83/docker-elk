@@ -11,185 +11,158 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <script>
-  var netdataTheme = 'slate'; 
+    var netdataTheme = 'slate'; 
   </script>
   <script type="text/javascript" src="http://netdata-docker.vibioh.fr/dashboard.js"></script>
   <script type="text/javascript" src="http://netdata-docker-node-1.vibioh.fr/dashboard.js"></script>
 
   <script>
-  NETDATA.options.current.destroy_on_hide = true;
-  NETDATA.options.current.eliminate_zero_dimensions = true;
-  NETDATA.options.current.concurrent_refreshes = false;
-  NETDATA.options.current.parallel_refresher = true;
+    NETDATA.options.current.destroy_on_hide = true;
+    NETDATA.options.current.eliminate_zero_dimensions = true;
+    NETDATA.options.current.concurrent_refreshes = false;
+    NETDATA.options.current.parallel_refresher = true;
 
-  var RELOAD_EVERY = 5;
-  setTimeout(function(){
-    location.reload();
-  }, RELOAD_EVERY * 60 * 1000);
-
+    var RELOAD_EVERY = 5;
+    setTimeout(function() {
+      location.reload();
+    }, RELOAD_EVERY * 60 * 1000);
   </script>
-
 </head>
-<body>
-
-<div style="width: 100%; text-align: center; display: inline-block;">
-
-  <div style="width: 100%; height: 24vh; text-align: center; display: inline-block;">
-    <div style="width: 100%; height: 15px; text-align: center; display: inline-block;">
-      <b>CPU</b>
-    </div>
-    <div style="width: 100%; height: calc(100% - 15px); text-align: center; display: inline-block;">
-      <br/>
-      <div data-netdata="system.cpu"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-units="%"
-           data-chart-library="easypiechart"
-           data-easypiechart-max-value="100"
-           data-width="18%"
-           data-after="-360"
-           data-points="-360"
-           data-colors="#22AA99"
-          ></div>
-      <div data-netdata="system.cpu"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker-node-1"
-           data-units="%"
-           data-chart-library="easypiechart"
-           data-easypiechart-max-value="100"
-           data-width="18%"
-           data-after="-360"
-           data-points="-360"
-           data-colors="#22AA99"
-          ></div>
-    </div>
+<body style="width: 100%; text-align: center; margin: auto;">
+  <div>
+    <b>docker</b>
   </div>
-
-  <div style="width: 100%; height: 24vh; text-align: center; display: inline-block;">
-    <div style="width: 100%; height: 15px; text-align: center; display: inline-block;">
-      <b>Memory</b>
-    </div>
-    <div style="width: 100%; height: calc(100% - 15px); text-align: center; display: inline-block;">
-      <div data-netdata="system.ram"
-           data-dimensions="used"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-units="%"
-           data-append-options="percentage"
-           data-chart-library="easypiechart"
-           data-easypiechart-max-value="100"
-           data-width="18%"
-           data-after="-360"
-           data-points="360"
-           data-colors="#EE9911"
-          ></div>
-      <div data-netdata="system.ram"
-           data-dimensions="used"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker-node-1"
-           data-units="%"
-           data-append-options="percentage"
-           data-chart-library="easypiechart"
-           data-easypiechart-max-value="100"
-           data-width="18%"
-           data-after="-360"
-           data-points="360"
-           data-colors="#EE9911"
-          ></div>
-    </div>
+  <div>
+    <div data-netdata="system.cpu"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="CPU"
+         data-units="%"
+         data-chart-library="easypiechart"
+         data-easypiechart-max-value="100"
+         data-width="18%"
+         data-after="-360"
+         data-points="-360"
+         data-colors="#22AA99"
+        ></div>
+    <div data-netdata="system.ram"
+         data-dimensions="used"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="RAM"
+         data-units="%"
+         data-append-options="percentage"
+         data-chart-library="easypiechart"
+         data-easypiechart-max-value="100"
+         data-width="18%"
+         data-after="-360"
+         data-points="360"
+         data-colors="#EE9911"
+        ></div>
+    <div data-netdata="system.io"
+         data-dimensions="in"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="I/O In"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-before="0"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.io"
+         data-dimensions="out"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="I/O out"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-before="0"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.ipv4"
+         data-dimensions="sent"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="IP in"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.ipv4"
+         data-dimensions="received"
+         data-host="http://netdata-docker.vibioh.fr"
+         data-title="IP out"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-after="-360"
+         data-points="-360"
+        ></div>
   </div>
-
-  <div style="width: 100%; height: 24vh; text-align: center; display: inline-block;">
-    <div style="width: 100%; height: 15px; text-align: center; display: inline-block;">
-      <b>I/O</b>
-    </div>
-    <div style="width: 100%; height: calc(100% - 15px); text-align: center; display: inline-block;">
-      <div data-netdata="system.io"
-           data-dimensions="in"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-before="0"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-      <div data-netdata="system.io"
-           data-dimensions="out"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-before="0"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-      <div data-netdata="system.io"
-           data-dimensions="in"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker-node-1"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-before="0"
-           data-after="-360"
-           data-points="360"
-          ></div>
-      <div data-netdata="system.io"
-           data-dimensions="out"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker-node-1"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-before="0"
-           data-after="-360"
-           data-points="360"
-          ></div>
-    </div>
+  <br/>
+  <div>
+    <b>docker-node-1</b>
   </div>
-
-  <div style="width: 100%; height: 24vh; text-align: center; display: inline-block;">
-    <div style="width: 100%; height: 15px; text-align: center; display: inline-block;">
-      <b>IP sent / received</b>
-    </div>
-    <div style="width: 100%; height: calc(100% - 15px); text-align: center; display: inline-block;">
-      <div data-netdata="system.ipv4"
-           data-dimensions="sent"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-      <div data-netdata="system.ipv4"
-           data-dimensions="received"
-           data-host="http://netdata-docker.vibioh.fr"
-           data-title="docker"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-      <div data-netdata="system.ipv4"
-           data-dimensions="sent"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker-node-1"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-      <div data-netdata="system.ipv4"
-           data-dimensions="received"
-           data-host="http://netdata-docker-node-1.vibioh.fr"
-           data-title="docker"
-           data-chart-library="easypiechart"
-           data-width="9%"
-           data-after="-360"
-           data-points="-360"
-          ></div>
-    </div>
+  <div>
+    <div data-netdata="system.cpu"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="CPU"
+         data-units="%"
+         data-chart-library="easypiechart"
+         data-easypiechart-max-value="100"
+         data-width="18%"
+         data-after="-360"
+         data-points="-360"
+         data-colors="#22AA99"
+        ></div>
+    <div data-netdata="system.ram"
+         data-dimensions="used"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="RAM"
+         data-units="%"
+         data-append-options="percentage"
+         data-chart-library="easypiechart"
+         data-easypiechart-max-value="100"
+         data-width="18%"
+         data-after="-360"
+         data-points="360"
+         data-colors="#EE9911"
+        ></div>
+    <div data-netdata="system.io"
+         data-dimensions="in"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="I/O In"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-before="0"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.io"
+         data-dimensions="out"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="I/O out"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-before="0"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.ipv4"
+         data-dimensions="sent"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="IP in"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-after="-360"
+         data-points="-360"
+        ></div>
+    <div data-netdata="system.ipv4"
+         data-dimensions="received"
+         data-host="http://netdata-docker-node-1.vibioh.fr"
+         data-title="IP out"
+         data-chart-library="easypiechart"
+         data-width="9%"
+         data-after="-360"
+         data-points="-360"
+        ></div>
   </div>
-</div>
 </body>
 </html>
