@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  netdata:
+    environment:
+    - constraint:node==${NODE}
+
+networks:
+  default:
+    external:
+      name: swarm-net

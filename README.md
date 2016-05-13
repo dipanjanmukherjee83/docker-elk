@@ -10,7 +10,7 @@
 ```
 export DOMAIN=your_domain_name
 export NODE=docker
-export NETDATA_DIR=`pwd`
+export NETDATA_DIR=`realpath ./`
 docker-compose -p elk up -d
 docker-compose -p logspout -f docker-compose-logspout.yml up -d
 docker-compose -p netdata -f docker-compose-netdata.yml up -d
