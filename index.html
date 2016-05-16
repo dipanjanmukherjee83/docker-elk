@@ -34,18 +34,22 @@
 
     body {
       width: 100%;
-      display: inline-flex;
-      flex-wrap: wrap;
     }
 
     .container {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
+    }
+
+    .container > h2 {
+      flex: 1;
     }
 
     .column {
       display: flex;
+      flex-wrap: nowrap;
       flex-direction: column;
     }
   </style>
@@ -83,7 +87,7 @@
          data-units="%"
          data-chart-library="easypiechart"
          data-easypiechart-max-value="100"
-         data-width="18%"
+         data-width="200px"
          data-after="-360"
          data-points="-360"
          data-colors="#22AA99"
@@ -97,7 +101,7 @@
          data-append-options="percentage"
          data-chart-library="easypiechart"
          data-easypiechart-max-value="100"
-         data-width="18%"
+         data-width="200px"
          data-after="-360"
          data-points="360"
          data-colors="#EE9911"
@@ -158,7 +162,7 @@
          data-units="%"
          data-chart-library="easypiechart"
          data-easypiechart-max-value="100"
-         data-width="18%"
+         data-width="200px"
          data-after="-360"
          data-points="-360"
          data-colors="#22AA99"
@@ -172,7 +176,7 @@
          data-append-options="percentage"
          data-chart-library="easypiechart"
          data-easypiechart-max-value="100"
-         data-width="18%"
+         data-width="200px"
          data-after="-360"
          data-points="360"
          data-colors="#EE9911"
