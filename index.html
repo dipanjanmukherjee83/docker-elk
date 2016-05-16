@@ -33,30 +33,29 @@
     }
 
     body {
-      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
     }
 
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .container > h2 {
       flex: 1;
+      display: flex;
     }
 
     .column {
+      margin: 10px;
       display: flex;
-      flex-wrap: nowrap;
       flex-direction: column;
+    }
+
+    .row {
+      display: flex;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>docker</h2>
     <div class="column">
       <div data-netdata="system.io"
            data-dimensions="in"
@@ -81,31 +80,36 @@
            >
       </div>
     </div>
-    <div data-netdata="system.cpu"
-         data-host="http://netdata-docker.vibioh.fr"
-         data-title="CPU"
-         data-units="%"
-         data-chart-library="easypiechart"
-         data-easypiechart-max-value="100"
-         data-width="200px"
-         data-after="-360"
-         data-points="-360"
-         data-colors="#22AA99"
-         >
-    </div>
-    <div data-netdata="system.ram"
-         data-dimensions="used"
-         data-host="http://netdata-docker.vibioh.fr"
-         data-title="RAM"
-         data-units="%"
-         data-append-options="percentage"
-         data-chart-library="easypiechart"
-         data-easypiechart-max-value="100"
-         data-width="200px"
-         data-after="-360"
-         data-points="360"
-         data-colors="#EE9911"
-         >
+    <div class="column">
+      <h2>docker</h2>
+      <div class="row">
+        <div data-netdata="system.cpu"
+             data-host="http://netdata-docker.vibioh.fr"
+             data-title="CPU"
+             data-units="%"
+             data-chart-library="easypiechart"
+             data-easypiechart-max-value="100"
+             data-width="140px"
+             data-after="-360"
+             data-points="-360"
+             data-colors="#22AA99"
+             >
+        </div>
+        <div data-netdata="system.ram"
+             data-dimensions="used"
+             data-host="http://netdata-docker.vibioh.fr"
+             data-title="RAM"
+             data-units="%"
+             data-append-options="percentage"
+             data-chart-library="easypiechart"
+             data-easypiechart-max-value="100"
+             data-width="140px"
+             data-after="-360"
+             data-points="360"
+             data-colors="#EE9911"
+             >
+        </div>
+      </div>
     </div>
     <div class="column">
       <div data-netdata="system.ipv4"
@@ -131,7 +135,6 @@
     </div>
   </div>
   <div class="container">
-    <h2>docker-node-1</h2>
     <div class="column">
       <div data-netdata="system.io"
            data-dimensions="in"
@@ -156,31 +159,36 @@
            >
       </div>
     </div>
-    <div data-netdata="system.cpu"
-         data-host="http://netdata-docker-node-1.vibioh.fr"
-         data-title="CPU"
-         data-units="%"
-         data-chart-library="easypiechart"
-         data-easypiechart-max-value="100"
-         data-width="200px"
-         data-after="-360"
-         data-points="-360"
-         data-colors="#22AA99"
-         >
-    </div>
-    <div data-netdata="system.ram"
-         data-dimensions="used"
-         data-host="http://netdata-docker-node-1.vibioh.fr"
-         data-title="RAM"
-         data-units="%"
-         data-append-options="percentage"
-         data-chart-library="easypiechart"
-         data-easypiechart-max-value="100"
-         data-width="200px"
-         data-after="-360"
-         data-points="360"
-         data-colors="#EE9911"
-         >
+    <div class="column">
+      <h2>docker-node-1</h2>
+      <div class="row">
+        <div data-netdata="system.cpu"
+             data-host="http://netdata-docker-node-1.vibioh.fr"
+             data-title="CPU"
+             data-units="%"
+             data-chart-library="easypiechart"
+             data-easypiechart-max-value="100"
+             data-width="140px"
+             data-after="-360"
+             data-points="-360"
+             data-colors="#22AA99"
+             >
+        </div>
+        <div data-netdata="system.ram"
+             data-dimensions="used"
+             data-host="http://netdata-docker-node-1.vibioh.fr"
+             data-title="RAM"
+             data-units="%"
+             data-append-options="percentage"
+             data-chart-library="easypiechart"
+             data-easypiechart-max-value="100"
+             data-width="140px"
+             data-after="-360"
+             data-points="360"
+             data-colors="#EE9911"
+             >
+        </div>
+      </div>
     </div>
     <div class="column">
       <div data-netdata="system.ipv4"
