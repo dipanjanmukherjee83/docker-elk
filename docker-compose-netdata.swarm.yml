@@ -1,6 +1,10 @@
 version: '2'
 
 services:
+  tv:
+    environment:
+    - affinity:container==swarm_manager
+
   netdata:
     environment:
     - constraint:node==${NODE}
