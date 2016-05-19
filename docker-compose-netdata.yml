@@ -9,8 +9,6 @@ services:
       traefik.port: '1080'
     volumes:
     - ${NETDATA_DIR}:/www
-    environment:
-    - affinity:container==swarm_manager
     logging:
       driver: json-file
       options:
