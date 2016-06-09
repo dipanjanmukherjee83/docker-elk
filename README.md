@@ -36,9 +36,5 @@ You need to start Logspout on each Docker daemon, so on each node. We have a scr
 
 ```
 ./start_logspout.sh
-export NETDATA_DIR=`realpath ./tv`
-export NODE=docker
-docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml up -d
-export NODE=docker-node-1
-docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml scale netdata=2
+./start_netdata.sh
 ```
