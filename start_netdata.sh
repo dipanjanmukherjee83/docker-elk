@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function swarm-node-name() {
   curl --insecure --cert ${DOCKER_CERT_PATH}/cert.pem --key ${DOCKER_CERT_PATH}/key.pem --silent -X GET https://${DOCKER_HOST}/info | pcregrep -o1 '(?:\["\s(\S*?)",".*?"\].*?)'
