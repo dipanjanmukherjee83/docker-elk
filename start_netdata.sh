@@ -35,13 +35,13 @@ export NETDATA_DIR=`realpath ./tv`
 
 docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml up -d tv
 i=0
-for swarm_node in `swarm-node-name`;
-  i=${i}+1
+for swarm_node in `swarm-node-name`; do
+  ((i++)) 
   
   export NODE=${swarm_node}
   if [ "${i}" -eq 1 ]; then
     docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml up -d netdata
   else
-    docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml scale netdata={i}
+    docker-compose -p netdata -f docker-compose-netdata.yml -f docker-compose-netdata.swarm.yml scale netdata=${i}
   fi
 done
