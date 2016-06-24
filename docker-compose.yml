@@ -59,3 +59,8 @@ services:
       options:
         max-size: '50m'
     restart: 'no'
+
+networks:
+  default:
+    external:
+      name: traefik

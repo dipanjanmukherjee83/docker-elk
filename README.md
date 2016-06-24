@@ -10,8 +10,9 @@
 ```
 export DOMAIN=your_domain_name
 export NODE=docker
-export NETDATA_DIR=`realpath ./`
+export NETDATA_DIR=`realpath ./tv`
 docker-compose -p elk up -d
+export LOGSTASH_IP=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' --type=container elk_logstash_1`
 docker-compose -p logspout -f docker-compose-logspout.yml up -d
 docker-compose -p netdata -f docker-compose-netdata.yml up -d
 ```
