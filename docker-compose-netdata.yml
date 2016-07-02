@@ -3,6 +3,7 @@ version: '2'
 services:
   tv:
     image: vibioh/http
+    command: --domain netdata-${NODE}.${DOMAIN}
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: netdata.${DOMAIN}'
