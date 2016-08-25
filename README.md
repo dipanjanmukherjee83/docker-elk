@@ -11,6 +11,7 @@
 export DOMAIN=your_domain_name
 export NODE=docker
 export NETDATA_DIR=`realpath ./tv`
+export ELASTIC_DIR=`realpath ./elastic`
 docker-compose -p elk up -d
 export LOGSTASH_IP=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' --type=container elk_logstash_1`
 docker-compose -p logspout -f docker-compose-logspout.yml up -d
