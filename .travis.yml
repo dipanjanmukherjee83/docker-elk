@@ -1,11 +1,11 @@
 sudo: required
 services:
-  - docker
+- docker
 script:
-  - "docker build -t vibioh/logspout --rm ./logspout/"
-  - "docker build -t vibioh/elasticsearch --rm ./elastic/"
-  - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
-  - "docker push vibioh/logspout"
-  - "docker push vibioh/elasticsearch"
+- docker build -t vibioh/logspout --rm ./logspout/
+- docker build -t vibioh/elasticsearch --rm ./elastic/
+- docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+- docker push vibioh/logspout
+- docker push vibioh/elasticsearch
 notifications:
   email: false
