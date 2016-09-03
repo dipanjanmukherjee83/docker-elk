@@ -12,10 +12,13 @@ export DOMAIN=your_domain_name
 export NODE=docker
 export NETDATA_DIR=`realpath ./tv`
 export ELASTIC_DIR=`realpath ./elastic`
+export PROMETHEUS_DIR=`realpath ./`
+
 docker-compose -p elk up -d
 export LOGSTASH_IP=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' --type=container elk_logstash_1`
 docker-compose -p logspout -f docker-compose-logspout.yml up -d
 docker-compose -p netdata -f docker-compose-netdata.yml up -d
+docker-compose -p prometheus -f docker-compose-prometheus.yml up -d
 ```
 
 Kibana will be accessible to http://kibana.your_domain_name if you use the awesome [Traefik](https://traefik.io). If not, you'll need to tweak the compose for changing `ports`.
