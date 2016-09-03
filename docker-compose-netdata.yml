@@ -14,8 +14,12 @@ services:
       driver: json-file
       options:
         max-size: '50m'
-    restart: 'no'
+    restart: on-failure:5
     read_only: true
+    cpu_shares: 128
+    mem_limit: 134217728
+    security_opt:
+    - no-new-privileges
 
   netdata:
     image: titpetric/netdata
@@ -29,6 +33,11 @@ services:
     - /sys:/host/sys:ro
     cap_add:
     - SYS_PTRACE
+    restart: on-failure:5
+    cpu_shares: 128
+    mem_limit: 134217728
+    security_opt:
+    - no-new-privileges
 
 networks:
   default:
