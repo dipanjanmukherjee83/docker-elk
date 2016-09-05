@@ -2,7 +2,7 @@ sudo: required
 services:
 - docker
 script:
-- wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh
+- wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh && chmod +x ./logspout/build.sh
 - docker build -t ${DOCKER_USER}/logspout ./logspout/
 - docker build -t ${DOCKER_USER}/elasticsearch  ./elastic/
 - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
