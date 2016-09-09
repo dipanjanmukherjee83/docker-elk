@@ -16,8 +16,8 @@ services:
     restart: on-failure:5
     cpu_shares: 512
     mem_limit: 536870912
-    security_opt:
-    - no-new-privileges
+#    security_opt:
+#    - no-new-privileges
 
   logstash:
     image: logstash
@@ -50,8 +50,8 @@ services:
     restart: on-failure:5
     cpu_shares: 256
     mem_limit: 536870912
-    security_opt:
-    - no-new-privileges
+#    security_opt:
+#    - no-new-privileges
 
   kibana:
     image: kibana
@@ -71,8 +71,8 @@ services:
     restart: on-failure:5
     cpu_shares: 256
     mem_limit: 268435456
-    security_opt:
-    - no-new-privileges
+#    security_opt:
+#    - no-new-privileges
 
 networks:
   default:
