@@ -10,6 +10,7 @@
 ```
 export DOMAIN=vibioh.fr
 export ELASTIC_DIR=`realpath ./elastic`
+sudo sysctl -w vm.max_map_count=262144
 
 docker-compose -p elk up -d
 export LOGSTASH_IP=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' --type=container elk_logstash_1`
