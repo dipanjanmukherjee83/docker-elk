@@ -1,4 +1,4 @@
-FROM elasticsearch
+FROM elasticsearch:5
 
 RUN ./bin/plugin install royrusso/elasticsearch-HQ \
  && echo 'http.cors.enabled: true' >> ./config/elasticsearch.yml \
