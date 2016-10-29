@@ -20,6 +20,7 @@ services:
 #    - no-new-privileges
   es-head:
     image: vibioh/es-head
+    command: --domain elasticsearch.vibioh.fr
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: es-head.${DOMAIN}'
