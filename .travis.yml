@@ -4,7 +4,7 @@ services:
 script:
 - docker build -t ${DOCKER_USER}/elasticsearch  ./elastic/
 - git clone https://github.com/mobz/elasticsearch-head.git ./elastic-head/head
-- sed -i '' -e "s|http://localhost:9200|https://elasticsearch.vibioh.fr|" ./elastic-head/head/_site/app.js
+- sed --in-place '' -e "s|http://localhost:9200|https://elasticsearch.vibioh.fr|" ./elastic-head/head/_site/app.js
 - docker build -t ${DOCKER_USER}/es-head  ./elastic-head/
 - wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh && chmod +x ./logspout/build.sh
 - docker build -t ${DOCKER_USER}/logspout ./logspout/
