@@ -2,9 +2,6 @@
 
 [![Build Status](https://travis-ci.org/ViBiOh/docker-elk.svg?branch=master)](https://travis-ci.org/ViBiOh/docker-elk) 
 
-* [![](https://imagelayers.io/badge/vibioh/elasticsearch:latest.svg)](https://imagelayers.io/?images=vibioh/elasticsearch:latest 'Get your own badge on imagelayers.io') ElasticSearch 
-* [![](https://imagelayers.io/badge/vibioh/logspout:latest.svg)](https://imagelayers.io/?images=vibioh/logspout:latest 'Get your own badge on imagelayers.io') Logspout 
-
 ## Starting ElasticSearch - Logstash - Kibana
 
 ```
@@ -18,8 +15,6 @@ docker-compose -p logspout -f docker-compose-logspout.yml up -d
 ```
 
 Kibana will be accessible to http://kibana.your_domain_name if you use the awesome [Traefik](https://traefik.io). If not, you'll need to tweak the compose for changing `ports`.
-
-Elasticsearch can be managed with [ElasticHQ](http://www.elastichq.org) on http://elasticsearch.your_domain_name/_plugin/hq
 
 Logspout is used to forward all logs from the Docker daemon to Logstash. It connects to `/var/run/docker.sock` to read information from the daemon.
 

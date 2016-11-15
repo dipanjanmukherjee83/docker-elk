@@ -18,23 +18,6 @@ services:
 #    mem_limit: 1063256064
 #    security_opt:
 #    - no-new-privileges
-  es-head:
-    image: vibioh/es-head
-    command: --domain elasticsearch.vibioh.fr
-    labels:
-      traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: es-head.${DOMAIN}'
-      traefik.port: '1080'
-    logging:
-      driver: json-file
-      options:
-        max-size: '50m'
-    restart: on-failure:5
-    read_only: true
-    cpu_shares: 128
-    mem_limit: 134217728
-#    security_opt:
-#    - no-new-privileges
 
   logstash:
     image: logstash
