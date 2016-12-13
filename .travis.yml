@@ -1,13 +1,14 @@
 sudo: required
 services:
 - docker
-script:
-- docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-- docker build -t ${DOCKER_USER}/elasticsearch  ./elastic/ &&
-  docker push ${DOCKER_USER}/elasticsearch
-- wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh &&
+script: |
+  docker build -t ${DOCKER_USER}/elasticsearch ./elastic/ &&
+  wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh &&
   chmod +x ./logspout/build.sh &&
-  docker build -t ${DOCKER_USER}/logspout ./logspout/ &&
-  docker push ${DOCKER_USER}/logspout
+  docker build -t ${DOCKER_USER}/logspout ./logspout/
+after_success: |
+  if [ "${TRAVIS_BRANCH}" == "master" ]; then
+    docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/elasticsearch && docker push ${DOCKER_USER}/logspout
+  fi
 notifications:
   email: false
