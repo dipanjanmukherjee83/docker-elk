@@ -4,8 +4,3 @@ services:
   logspout:
     environment:
     - affinity:container!=*logspout*
-
-networks:
-  default:
-    external:
-      name: swarm-net
