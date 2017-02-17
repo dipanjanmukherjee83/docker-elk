@@ -15,7 +15,7 @@ services:
         max-size: '50m'
     restart: on-failure:5
     cpu_shares: 512
-#    mem_limit: 1063256064
+    mem_limit: 1073741824
     security_opt:
     - no-new-privileges
 
