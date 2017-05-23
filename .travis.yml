@@ -4,6 +4,7 @@ services:
 script: |
   docker build -t ${DOCKER_USER}/elasticsearch ./elastic/ &&
   wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh &&
+  sed -i '' -e "s|^go get|go get github.com/looplab/logspout-logstash\ngo get|" ./logspout/build.sh &&
   chmod +x ./logspout/build.sh &&
   docker build -t ${DOCKER_USER}/logspout ./logspout/
 after_success: |
