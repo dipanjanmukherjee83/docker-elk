@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gliderlabs/logspout/transports/udp"
-  	"github.com/gliderlabs/logspout/transports/tcp"
-	"github.com/looplab/logspout-logstash"
+	_ "github.com/gliderlabs/logspout/transports/udp"
+  	_ "github.com/gliderlabs/logspout/transports/tcp"
+	_ "github.com/looplab/logspout-logstash"
 )
