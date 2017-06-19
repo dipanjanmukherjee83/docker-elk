@@ -4,6 +4,7 @@ services:
   elasticsearch:
     image: vibioh/elasticsearch
     labels:
+      traefik.backend.healthcheck.path: '/_cluster/health'
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: elasticsearch.${DOMAIN}'
       traefik.port: '9200'
