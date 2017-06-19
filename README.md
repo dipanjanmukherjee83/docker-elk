@@ -5,6 +5,7 @@
 ## Starting ElasticSearch - Logstash - Kibana
 
 ```
+export DOMAIN=vibioh.fr
 export ELASTIC_DIR=`realpath ./elastic_data`
 sudo sysctl -w vm.max_map_count=262144
 
