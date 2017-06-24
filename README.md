@@ -25,3 +25,15 @@ You need to start Logspout on each Docker daemon, so on each node. We have a scr
 ```
 ./start_logspout.sh
 ```
+
+## Using Loggly
+
+```
+docker run -d \
+  --name loggly
+  -e 'LOGGLY_TOKEN=<token>' \
+  -e 'FILTER_NAME=<wildcard-container-name>' \
+  -v /var/run/docker.sock:/tmp/docker.sock:ro \
+  iamatypeofwalrus/logspout-loggly
+```
+  
