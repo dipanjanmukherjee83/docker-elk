@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  logspout:
+    image: iamatypeofwalrus/logspout-loggly
+    labels:
+      traefik.enable: 'false'
+    environment:
+      LOGGLY_TOKEN: ${LOGGLY_TOKEN}
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: on-failure:5
+    cpu_shares: 128
+    mem_limit: 33554432
+    security_opt:
+    - no-new-privileges
+
+networks:
+  default:
+    external:
+      name: traefik
