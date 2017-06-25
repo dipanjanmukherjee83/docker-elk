@@ -1,5 +1,7 @@
 FROM elasticsearch:5-alpine
 
+HEALTHCHECK --retries=10 CMD wget -qO- http://localhost:9200/_cat/health
+
 RUN echo 'http.cors.enabled: true' >> ./config/elasticsearch.yml \
  && echo 'http.cors.allow-origin: "*"' >> ./config/elasticsearch.yml \
  && echo 'http.cors.allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE' >> ./config/elasticsearch.yml \
