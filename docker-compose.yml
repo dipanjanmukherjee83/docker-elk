@@ -13,7 +13,7 @@ services:
     logging:
       driver: json-file
       options:
-        max-size: '50m'
+        max-size: '10m'
     restart: on-failure:5
     cpu_shares: 512
     mem_limit: 1073741824
@@ -47,7 +47,7 @@ services:
     logging:
       driver: json-file
       options:
-        max-size: '50m'
+        max-size: '10m'
     restart: on-failure:5
     cpu_shares: 256
     mem_limit: 536870912
@@ -68,7 +68,7 @@ services:
     logging:
       driver: json-file
       options:
-        max-size: '50m'
+        max-size: '10m'
     restart: on-failure:5
     cpu_shares: 256
     mem_limit: 268435456
