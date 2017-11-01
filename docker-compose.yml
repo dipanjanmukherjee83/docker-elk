@@ -40,8 +40,8 @@ services:
     expose:
     - '5000/udp'
     environment:
-    - TZ=Europe/Paris
-    - LOGSPOUT=ignore
+      TZ: 'Europe/Paris'
+      LOGSPOUT: 'ignore'
     links:
     - elasticsearch:elasticsearch
     logging:
@@ -61,8 +61,8 @@ services:
       traefik.frontend.rule: 'Host: kibana.${DOMAIN}'
       traefik.port: '5601'
     environment:
-    - ELASTICSEARCH_URL=http://elasticsearch:9200
-    - NODE_OPTIONS=-max-old-space-size=200
+      ELASTICSEARCH_URL: 'http://elasticsearch:9200'
+      NODE_OPTIONS: '-max-old-space-size=200'
     links:
     - elasticsearch:elasticsearch
     logging:
