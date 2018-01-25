@@ -12,8 +12,7 @@ services:
       options:
         max-size: '10m'
     restart: on-failure:5
-    cpu_shares: 512
-    mem_limit: 1073741824
+    cpu_shares: 256
     security_opt:
     - no-new-privileges
 
@@ -50,7 +49,7 @@ services:
     - no-new-privileges
 
   logspout:
-    image: gliderlabs/logspout
+    image: vibioh/logspout
     command: 'logstash://logstash:5000'
     labels:
       traefik.enable: 'false'
@@ -71,10 +70,10 @@ services:
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: kibana.vibioh.fr'
+      traefik.frontend.auth.basic: 'dmliaW9oOmJvdW1hc0tJQjRONCEK'
       traefik.port: '5601'
     environment:
       ELASTICSEARCH_URL: 'http://elasticsearch:9200'
-      NODE_OPTIONS: '-max-old-space-size=200'
     logging:
       driver: json-file
       options:
