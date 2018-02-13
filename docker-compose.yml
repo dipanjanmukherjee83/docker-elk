@@ -70,7 +70,7 @@ services:
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: kibana.vibioh.fr'
-      traefik.frontend.auth.basic: 'dmliaW9oOmJvdW1hc0tJQjRONCEK'
+      traefik.frontend.auth.basic: 'vibioh:${KIBANA_PASSWORD}'
       traefik.port: '5601'
     environment:
       ELASTICSEARCH_URL: 'http://elasticsearch:9200'
