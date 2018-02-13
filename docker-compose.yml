@@ -78,6 +78,10 @@ services:
       traefik.frontend.rule: 'Host: kibana.vibioh.fr'
       traefik.frontend.auth.basic: 'vibioh:${KIBANA_PASSWORD}'
       traefik.port: '5601'
+      traefik.frontend.rateLimit.extractorFunc: 'client.ip'
+      traefik.frontend.rateLimit.rateSet.first.period: '60s'
+      traefik.frontend.rateLimit.rateSet.first.average: '100'
+      traefik.frontend.rateLimit.rateSet.first.burst: '200'
     environment:
       ELASTICSEARCH_URL: 'http://elasticsearch:9200'
       LOGSPOUT: 'ignore'
