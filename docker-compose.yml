@@ -11,7 +11,7 @@ services:
       ES_JAVA_OPTS: '-Xms1g -Xmx1g'
       LOGSPOUT: 'ignore'
     healthcheck:
-      test: ["CMD", "wget", "-q", "http://localhost:9200/_cluster/health"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:9200/_cluster/health"]
     logging:
       driver: json-file
       options:
@@ -89,7 +89,7 @@ services:
       ELASTICSEARCH_URL: 'http://elasticsearch:9200'
       LOGSPOUT: 'ignore'
     healthcheck:
-      test: ["CMD", "wget", "-q", "http://localhost:5601"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:5601"]
     logging:
       driver: json-file
       options:
