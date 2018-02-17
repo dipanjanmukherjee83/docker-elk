@@ -5,8 +5,10 @@
 ## Starting ElasticSearch - Logstash - Kibana
 
 ```
+read -p "KIBANA_PASSWORD=" KIBANA_RAW_PASSWORD
+
 export ELASTIC_DIR=`realpath ./elastic_data`
-export KIBANA_PASSWORD=`bcrypt password`
+export KIBANA_PASSWORD=`bcrypt ${KIBANA_RAW_PASSWORD}`
 sudo sysctl -w vm.max_map_count=262144
 
 docker-compose -p elk up -d
