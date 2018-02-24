@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  logspout:
+    image: gliderlabs/logspout
+    command: 'syslog+tcp://logs-01.loggly.com:514'
+    labels:
+      traefik.enable: 'false'
+    environment:
+      SYSLOG_STRUCTURED_DATA: '${LOGGLY_API_KEY}@41058'
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+    restart: on-failure:5
+    cpu_shares: 128
+    mem_limit: 33554432
+    security_opt:
+    - no-new-privileges
+
+networks:
+  default:
+    external:
+      name: traefik
