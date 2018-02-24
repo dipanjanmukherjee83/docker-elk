@@ -20,8 +20,8 @@ Logspout is used to forward all logs from the Docker daemon to Logstash. It conn
 ## Loggly
 
 ```
-read -p "LOGGLY_API_KEY=" LOGGLY_API_KEY
-export LOGGLY_API_KEY=${LOGGLY_API_KEY}
+export PAPERTRAIL_NUMBER=0
+export PAPERTRAIL_PORT=1234
 
-docker-compose -p log -f docker-compose.loggly.yml up -d
+docker-compose -p log -f docker-compose.papertail.yml up -d
 ```
