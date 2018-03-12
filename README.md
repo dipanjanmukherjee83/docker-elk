@@ -23,5 +23,5 @@ Logspout is used to forward all logs from the Docker daemon to Logstash. It conn
 export PAPERTRAIL_NUMBER=0
 export PAPERTRAIL_PORT=1234
 
-docker-compose -p log -f docker-compose.papertail.yml up -d
+docker-compose -p log -f docker-compose.papertrail.yml up -d
 ```
