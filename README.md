@@ -17,7 +17,7 @@ docker-compose -p elk up -d
 Logspout is used to forward all logs from the Docker daemon to Logstash. It connects to `/var/run/docker.sock` to read information from the daemon.
 
 
-## Loggly
+## Papertrail
 
 ```
 export PAPERTRAIL_NUMBER=0
