@@ -8,10 +8,11 @@ services:
       traefik.enable: 'false'
     environment:
       LOGSPOUT: 'ignore'
+      PORT: '1080'
     volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
+    - /var/run/docker.sock:/var/run/docker.sock:ro
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost/routes"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:1080/routes"]
     logging:
       driver: json-file
       options:
