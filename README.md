@@ -20,6 +20,7 @@ Logspout is used to forward all logs from the Docker daemon to Logstash. It conn
 ## Papertrail
 
 ```
+export CONTAINER_USER=1000
 export PAPERTRAIL_NUMBER=0
 export PAPERTRAIL_PORT=1234
 

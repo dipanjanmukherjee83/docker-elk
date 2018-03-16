@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 
 services:
   logspout:
@@ -10,10 +10,13 @@ services:
       LOGSPOUT: 'ignore'
     volumes:
     - /var/run/docker.sock:/tmp/docker.sock
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/routes"]
     logging:
       driver: json-file
       options:
         max-size: '10m'
+    user: '${CONTAINER_USER}'
     restart: on-failure:5
     cpu_shares: 128
     mem_limit: 33554432
