@@ -8,7 +8,7 @@ script: |
   docker build -t ${DOCKER_USER}/logspout ./logspout/
 after_success: |
   if [ "${TRAVIS_BRANCH}" == "master" ]; then
-    echo $(DOCKER_PASS) | docker login -u $(DOCKER_USER) --password-stdin && docker push ${DOCKER_USER}/logspout
+    echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin && docker push ${DOCKER_USER}/logspout
   fi
 notifications:
   email: false
