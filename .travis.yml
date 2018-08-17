@@ -5,10 +5,10 @@ script: |
   wget -O ./logspout/build.sh https://raw.githubusercontent.com/gliderlabs/logspout/master/build.sh &&
   sed -i -e "s|go get|go get github.com/looplab/logspout-logstash && go get|" ./logspout/build.sh &&
   chmod +x ./logspout/build.sh &&
-  docker build -t ${DOCKER_USER}/logspout ./logspout/
+  docker build -t vibioh/logspout ./logspout/
 after_success: |
   if [ "${TRAVIS_BRANCH}" == "master" ]; then
-    echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin && docker push ${DOCKER_USER}/logspout
+    echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && docker push vibioh/logspout
   fi
 notifications:
   email: false
